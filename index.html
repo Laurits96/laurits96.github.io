@@ -5,30 +5,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio</title>
     <style>
+        .content { display: none; }
+        .active { display: block; }
         body {
-            font-family: Arial, sans-serif;
+            font-family: sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f5f5f5;
+            background-color: #F9F9F9;
+            color: white;
+        }
+
+        .nav a {
+            color: #666; /* Default color */
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s; /* Smooth transition effect */
+        }
+        .nav a:hover {
+            color: white; /* Color when hovered */
+        }
+        .nav .active-link {
+            color: white; /* Color for active nav link */
         }
         .sidebar {
-            background-color: #a52a2a;
-            color: white;
-            width: 30%;
+            width: 25%;
             height: 100vh;
             position: fixed;
             padding: 20px;
+            background-image: url('bg.jpg'), linear-gradient(rgba(200, 13, 13, 0.8), rgba(200, 13, 13, 0.8));
+            background-size: cover;
+            background-blend-mode: overlay;
+            backdrop-filter: blur(10px);
         }
         .sidebar img {
-            width: 150px;
+            width: 40%;
             border-radius: 50%;
-            margin-bottom: 20px;
+            margin-left: 27%;
+            box-shadow: 0 0 30px 10px rgba(0, 0, 0, 0.3);
         }
         .sidebar h1 {
             font-size: 28px;
         }
         .sidebar p {
-            font-size: 16px;
+            font-size: 14px;
             margin: 10px 0;
         }
         .sidebar ul {
@@ -38,22 +57,29 @@
         .sidebar ul li {
             margin: 10px 0;
         }
-        .sidebar ul li a {
-            color: white;
-            text-decoration: none;
-            font-size: 16px;
-        }
         .sidebar .social {
-            margin-top: 30px;
+            position: fixed;
+            bottom: 10px;
         }
         .sidebar .social a {
-            color: white;
+            color: #666;
             margin-right: 15px;
             text-decoration: none;
             font-size: 18px;
+            margin-top: 30px;
         }
+        .sidebar .social a:hover {
+            color: white; /* Color when hovered */
+            transition: color 0.3s; /* Smooth transition effect */
+        }
+        #Portfolio img {
+            max-width: 100%; /* Make the image responsive */
+            height: 75vh; /* Maintain aspect ratio */
+            border-radius: 4px; /* Rounded corners */
+        }
+
         .content {
-            margin-left: 30%;
+            margin-left: 26%;
             padding: 40px;
         }
         .content h2 {
@@ -65,42 +91,6 @@
             font-size: 18px;
             color: #666;
         }
-        .companies {
-            margin: 30px 0;
-        }
-        .companies img {
-            width: 100px;
-            margin-right: 15px;
-            vertical-align: middle;
-        }
-        .project {
-            background-color: white;
-            padding: 20px;
-            margin: 30px 0;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        .project h3 {
-            font-size: 24px;
-            margin-bottom: 10px;
-        }
-        .project img {
-            width: 100%;
-            border-radius: 10px;
-        }
-        .project p {
-            margin: 15px 0;
-            color: #333;
-            font-size: 16px;
-        }
-        .project button {
-            background-color: #a52a2a;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-        }
     </style>
 </head>
 <body>
@@ -108,40 +98,65 @@
     <div class="sidebar">
         <img src="profilePicture.png" alt="Profile Picture">
         <h1>Laurits Nøhr Andersen</h1>
-        <p>Detail-Oriented Software Engineer with Academic Projects Looking for First Professional Experience</p>
-        <ul>
-            <li><a href="#">OFFER</a></li>
-            <li><a href="#">PORTFOLIO</a></li>
-            <li><a href="#">HIRE ME</a></li>
-            <li><a href="#">CV</a></li>
-            <li><a href="#">PRESENTATIONS</a></li>
-            <li><a href="#">PERSONAL BLOG</a></li>
-        </ul>
-        <div class="social">
-            <a href="#">LinkedIn</a>
-            <a href="#">GitHub</a>
-            <a href="#">Twitter</a>
-        </div>
-    </div>
-
-    <div class="content">
-        <h2>PORTFOLIO</h2>
-        <p>I'm currently available for the next project. Looking for a full-stack engineer who can develop your idea? If so, <a href="#">let me know</a>.</p>
-        <p>P.S. Besides works seen below, I've also done work for the following companies:</p>
-      
-
-        <div class="project">
-            <h3>Tripsomnia</h3>
-            <p>Experience a lifetime adventure. Save up on your holiday.</p>
-            <p>Tripsomnia is a web platform that allows users to book and sell local tours and tourist attractions all over the world. It serves both as:</p>
+        <p>Detail-Oriented Software Engineer from DTU, Looking for First Professional Experience</p>
+        <br/>
+        <br/>
+        <nav class="nav"">
             <ul>
-                <li>A SaaS platform for tour operators and activity providers, to manage their offers, customers, orders, and agents cooperation.</li>
-                <li>A marketplace for end-customers to book the local tours and activities while or before traveling.</li>
+                <li><a href="javascript:void(0);" id="nav-Portfolio" class="active-link" onclick="showContent('Portfolio')">Portfolio</a></li>
+                <li><a href="javascript:void(0);" id="nav-CV" onclick="showContent('CV')">CV</a></li>
+                <li><a href="javascript:void(0);" id="nav-Diploma" onclick="showContent('Diploma')">Diploma</a></li>
             </ul>
-            <button>Read more</button>
-            
+        </nav>
+        <div class="social">
+            <a href="https://www.linkedin.com/in/laurits-nøhr-andersen-885a411b0" target="_blank">LinkedIn</a>
+            <a href="https://github.com/Laurits96" target="_blank">GitHub</a>
         </div>
     </div>
+
+    <div id="Portfolio" class="content active">
+        <h2>Portfolio</h2>
+        <p>Portfolio page is currently under development...</p>
+        <img src="meme.jpg">
+    </div> 
+
+    <div id="CV" class="content">
+        <h2>CV</h2>
+        <script src="cv.html"></script>
+        <p>Experience a lifetime adventure. Save up on your holiday.</p>
+        <p>Tripsomnia is a web platform that allows users to book and sell local tours and tourist attractions all over the world. It serves both as:</p>
+    </div>
+
+    <div id="Diploma" class="content">
+        <h2>Show Diplomas</h2>
+        <p>Here diplomas should be showcased</p>
+    </div>
+
+    <script>
+        function showContent(id) {
+            // Hide all content sections and remove active class from all nav links
+            document.querySelectorAll('.content').forEach(content => content.classList.remove('active'));
+            document.querySelectorAll('nav a').forEach(link => {
+                link.classList.remove('active-link');
+                // Reset text to default
+                if (link.id === 'nav-' + id) {
+                    link.textContent = link.textContent;
+                } else {
+                    link.textContent = link.dataset.defaultText || link.textContent;
+                }
+            });
+            
+            // Update the active nav link text
+            const activeLink = document.getElementById('nav-' + id);
+            activeLink.classList.add('active-link');
+            activeLink.dataset.defaultText = activeLink.textContent; // Store default text
+            activeLink.textContent = activeLink.textContent;
+              
+            // Show the selected content section and update nav link text
+            const content = document.getElementById(id);
+            content.classList.add('active');
+        }
+    </script>
 
 </body>
 </html>
