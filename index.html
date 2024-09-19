@@ -1,14 +1,153 @@
-<!doctype html>
-<style>
-  p{
-    color:red
-  }
-</style>
-<html>
-  <head>
-    <title>This is the title of the webpage!</title>
-  </head>
-  <body>
-    <p>TEST - This is an example paragraph. Anything in the <strong>body</strong> tag will appear on the page, just like this <strong>p</strong> tag and its contents.</p>
-  </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        .sidebar {
+            background-color: #a52a2a;
+            color: white;
+            width: 30%;
+            height: 100vh;
+            position: fixed;
+            padding: 20px;
+        }
+        .sidebar img {
+            width: 150px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+        }
+        .sidebar h1 {
+            font-size: 28px;
+        }
+        .sidebar p {
+            font-size: 16px;
+            margin: 10px 0;
+        }
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .sidebar ul li {
+            margin: 10px 0;
+        }
+        .sidebar ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+        }
+        .sidebar .social {
+            margin-top: 30px;
+        }
+        .sidebar .social a {
+            color: white;
+            margin-right: 15px;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        .content {
+            margin-left: 30%;
+            padding: 40px;
+        }
+        .content h2 {
+            color: #333;
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+        .content p {
+            font-size: 18px;
+            color: #666;
+        }
+        .companies {
+            margin: 30px 0;
+        }
+        .companies img {
+            width: 100px;
+            margin-right: 15px;
+            vertical-align: middle;
+        }
+        .project {
+            background-color: white;
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .project h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        .project img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        .project p {
+            margin: 15px 0;
+            color: #333;
+            font-size: 16px;
+        }
+        .project button {
+            background-color: #a52a2a;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="sidebar">
+        <img src="profile.jpg" alt="Profile Picture">
+        <h1>JACK TOMASZEWSKI</h1>
+        <p>FREELANCE FULL-STACK ENGINEER</p>
+        <ul>
+            <li><a href="#">OFFER</a></li>
+            <li><a href="#">PORTFOLIO</a></li>
+            <li><a href="#">HIRE ME</a></li>
+            <li><a href="#">CV</a></li>
+            <li><a href="#">PRESENTATIONS</a></li>
+            <li><a href="#">PERSONAL BLOG</a></li>
+        </ul>
+        <div class="social">
+            <a href="#">LinkedIn</a>
+            <a href="#">GitHub</a>
+            <a href="#">Twitter</a>
+        </div>
+    </div>
+
+    <div class="content">
+        <h2>PORTFOLIO</h2>
+        <p>I'm currently available for the next project. Looking for a full-stack engineer who can develop your idea? If so, <a href="#">let me know</a>.</p>
+        <p>P.S. Besides works seen below, I've also done work for the following companies:</p>
+        <div class="companies">
+            <img src="mgm.png" alt="MGM Resorts">
+            <img src="allegro.png" alt="Allegro">
+            <img src="recruitee.png" alt="Recruitee">
+            <img src="ailo.png" alt="Ailo">
+            <img src="intent.png" alt="Intent">
+        </div>
+
+        <div class="project">
+            <h3>Tripsomnia</h3>
+            <p>Experience a lifetime adventure. Save up on your holiday.</p>
+            <p>Tripsomnia is a web platform that allows users to book and sell local tours and tourist attractions all over the world. It serves both as:</p>
+            <ul>
+                <li>A SaaS platform for tour operators and activity providers, to manage their offers, customers, orders, and agents cooperation.</li>
+                <li>A marketplace for end-customers to book the local tours and activities while or before traveling.</li>
+            </ul>
+            <button>Read more</button>
+            <img src="tripsomnia.png" alt="Tripsomnia Screenshot">
+        </div>
+    </div>
+
+</body>
 </html>
