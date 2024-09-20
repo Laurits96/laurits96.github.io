@@ -1,22 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="icon" href="fav.png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio</title>
     <style>
+        :root {
+            --bg-color: #211a1a;
+            --text-color: #e0e0e0;
+            --nav-bg-color: #1f1f1f;
+            --nav-link-color: #666;
+            --active-link-color: #fff;
+            --kval-bg-color: rgba(200, 13, 13, 0.6);
+            --kval-color:  #e0e0e0;
+        }
+
+        /* Dark theme */
+        .light-mode {
+            --bg-color: #F9F9F9;
+            --text-color: #333333;
+            --nav-bg-color: #f4f4f4;
+            --nav-link-color: #666;
+            --active-link-color: #000;
+            --kval-bg-color: rgb(238, 57, 57);
+            --kval-color:  #000000;
+        }
+
         .content { display: none; }
         .active { display: block; }
         body {
             font-family: sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #F9F9F9;
-            color: white;
+            background-color: var(--bg-color);
+            color:var(--text-color);
         }
 
         .nav a {
-            color: #666; /* Default color */
+            color: var(--nav-link-color); /* Default color */
             text-decoration: none;
             font-size: 16px;
             transition: color 0.3s; /* Smooth transition effect */
@@ -28,9 +50,9 @@
             color: white; /* Color for active nav link */
         }
         .sidebar {
+            position: fixed;
             width: 25%;
             height: 100vh;
-            position: fixed;
             padding: 20px;
             background-image: url('bg.jpg'), linear-gradient(rgba(200, 13, 13, 0.8), rgba(200, 13, 13, 0.8));
             background-size: cover;
@@ -45,10 +67,12 @@
         }
         .sidebar h1 {
             font-size: 28px;
+            color: white;
         }
         .sidebar p {
             font-size: 14px;
             margin: 10px 0;
+            color: white;
         }
         .sidebar ul {
             list-style-type: none;
@@ -65,50 +89,109 @@
             color: #666;
             margin-right: 15px;
             text-decoration: none;
-            font-size: 18px;
+            font-size: 16px;
             margin-top: 30px;
         }
         .sidebar .social a:hover {
             color: white; /* Color when hovered */
             transition: color 0.3s; /* Smooth transition effect */
         }
+        /* The switch container */
+        .switch {
+            position: fixed;
+            bottom: 10px;
+            left: 25%;
+            width: 1.7%;
+            height: 1.5%;
+        }
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 34px;
+        }
+        .slider:before {
+            position: absolute;
+            content: "";
+            width: 50%;
+            height: 100%;
+            left: 0px;
+            bottom: 0px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+        /* When the checkbox is checked, change the background color */
+        input:checked + .slider {
+            background-color: #f32121; /* Color when dark mode is activated */
+        }
+        /* Move the slider circle when checked */
+        input:checked + .slider:before {
+            transform: translateX(100%);
+        }
+
         #Portfolio img {
             max-width: 100%; /* Make the image responsive */
             height: 75vh; /* Maintain aspect ratio */
             border-radius: 4px; /* Rounded corners */
         }
-
+    
         .content {
             margin-left: 26%;
             padding: 40px;
         }
         .content h2 {
-            color: #333;
+            color: var(--text-color);
             font-size: 36px;
             margin-bottom: 10px;
         }
         .content h3 {
-            color: #333;
+            color: var(--text-color);
             font-size: 28px;
             font-weight: 750;
             margin-bottom: 10px;
         }
         .content h4 {
-            color: #333;
+            color: var(--text-color);
             font-size: 20px;
             font-weight: 600;
             margin-bottom: 10px;
         }
         .content p {
             font-size: 15px;
-            color: #666;
+            color: #7d7d7d;
         }
         .content .desc{
             font-size: 15px;
-            color: #7372726e;
+            color: var(--text-color);
             margin-bottom: 0px;
             margin-top: 0px;
         }
+        .content .kval{
+            position: relative;
+            float: right;
+            margin-top: 3%;
+            right: 0px;
+            padding: 10px 10px 0px 10px;
+            background-color: var(--kval-bg-color);
+            color:var(--kval-color);
+            border-radius:10px ;
+        }
+        .content .kval ul li{
+            margin: 10px 0;
+            color: var(--kval-color);
+        }
+       
 
     </style>
 </head>
@@ -120,11 +203,10 @@
         <p>Detail-Oriented Software Engineer from DTU, Looking for First Professional Experience</p>
         <br/>
         <br/>
-        <nav class="nav"">
+        <nav class="nav">
             <ul>
                 <li><a href="javascript:void(0);" id="nav-Portfolio" class="active-link" onclick="showContent('Portfolio')">Portfolio &gt;</a></li>
                 <li><a href="javascript:void(0);" id="nav-CV" onclick="showContent('CV')">CV</a></li>
-                <li><a href="javascript:void(0);" id="nav-Diploma" onclick="showContent('Diploma')">Diploma</a></li>
             </ul>
         </nav>
         <div class="social">
@@ -132,21 +214,49 @@
             <a href="https://github.com/Laurits96" target="_blank">GitHub</a>
         </div>
     </div>
+    <label class="switch">
+        <input type="checkbox" id="theme-toggle">
+        <span class="slider round"></span>
+    </label>
 
-    <div id="Portfolio" class="content">
+    <div id="Portfolio" class="content active">
         <h2>Portfolio</h2>
         <p>Portfolio page is currently under development...</p>
         <img src="meme.jpg">
     </div> 
 
-    <div id="CV" class="content active">
+    <div id="CV" class="content">
+        <span id="skillList" class="kval">
+            Qualifications
+            <ul>
+                <li>MYSQL</li>
+                <li>Java</li>
+                <li>Python</li>
+                <li>TypeScript</li>
+                <li>C/C++</li>
+                <li>Agile methodologies</li>
+                <li>Version Control - Git</li>
+                <li>Software Design</li>
+                <li>Software Architecture</li>
+                <li>Obejct Oriented Programming</li>
+                <li>Functional Programming</li>               
+                <li>R</li>
+                <li>Web development</li>
+                <li>Flutter</li>
+                <li>Teamwork</li>
+                <li>Communication</li>
+                <li>Algorithm Design</li>
+                <li>Data Structures</li>
+
+            </ul>
+        </span>
         <h3>Work Experience</h3>
             <h4>Polykteknisk Boghandel & Forlag</h4>
                 <div class="desc">Student assistant - 2021 to 2024</div>
                 <p>In my role as a student assistant at the Polyteknisk Boghandel og Forlag and publishing house, I was responsible for several key tasks that ensured efficient operations and a positive customer experience. I handled inventory management, where I received, checked, and registered new deliveries of books and other products. Additionally, I was in charge of organizing and maintaining the warehouse, which involved keeping track of stock levels, ensuring optimal storage of products, and making sure the store was always well-stocked.
                     I also had direct customer interaction, where I assisted customers in finding the right books and products, answered questions, and provided personalized service that met their needs. Furthermore, I managed online orders, where I packed, processed, and shipped orders, ensuring that customers received their items quickly and accurately.
                     My experience has equipped me with strong skills in logistics, customer service, and retail, all of which have contributed to smooth and customer-focused operations.</p>
-            
+
             <h4>Substitute Teacher</h4>
             <div class="desc">August 2016 - June 2017</div>
                 <p>As a substitute teacher, I taught students from kindergarten through 10th grade in various subjects. My role involved planning and delivering lessons, where I adapted the teaching materials to different age groups and academic levels. I taught subjects such as Danish, mathematics, English, science, and social studies, working with both individual tasks and group work to foster students' learning and engagement.
@@ -155,14 +265,14 @@
                     My experience as a substitute teacher has developed my pedagogical skills, my ability to manage various teaching situations, and my commitment to supporting students' development and well-being.</p>
        
         <h3>Education</h3>
-            <h4>Bs. in Eng. Software technology - DTU</h4>
+            <h4>BSc Eng. Software technology - DTU</h4>
             <div class="desc">2021-2024</div>
             <p> During my Software Engineering studies at DTU, I gained a solid understanding of the core principles of software development. I worked with various programming languages, including Java, Python, TypeScript, and R, as well as development environments, gaining experience in both frontend and
                 backend development. Additionally, through coursework, I acquired comprehensive knowledge of databases, algorithms, data structures, software architecture, and design patterns.
                 My education also provided me with practical experience in agile development methodologies, version control, and teamwork through project work. I have honed my problem-solving skills and my ability to translate complex requirements into effective software solutions.
                 For my bachelor’s project, I collaborated with a company to develop a new interface for their equipment. I applied user experience engineering principles to create wireframes and assisted in identifying the necessary functionalities that the new interface should include.
             </p>
-            <h4>Bs. in Eng. Quantitive Biology and Disease Modelling - DTU</h4>
+            <h4>BSc Eng. Quantitive Biology and Disease Modelling - DTU</h4>
             <div class="desc">2017-2021</div>
             <p>
                 During this study, I acquired fundamental knowledge of human anatomy and physiology, along with an understanding of the most common diseases in Denmark, including their prevalence, etiology, pathogenesis, and symptoms.
@@ -180,11 +290,6 @@
             <p>
                 As a volunteer with CISV, I participated in their "Village" program, which brought together groups from 13 different nationalities. In my role as a Leader, I was responsible for four eleven-year-old children over the course of the four-week program. This experience allowed me to develop excellent teamwork skills with other leaders from around the world and coordinate activities for all participating children.
             </p>
-    </div>
-
-    <div id="Diploma" class="content">
-        <h2>Show Diplomas</h2>
-        <p>Here diplomas should be showcased</p>
     </div>
 
     <script>
@@ -211,6 +316,28 @@
             const content = document.getElementById(id);
             content.classList.add('active');
         }
+        const toggleSwitch = document.getElementById('theme-toggle'); // Get the switch element (checkbox)
+        const body = document.body; // Reference the body element to apply theme changes
+
+        // Check for saved user preference on page load
+        window.addEventListener('DOMContentLoaded', () => {
+            // Check if the user previously selected light mode and saved it in localStorage
+            if (localStorage.getItem('theme') === 'light') {
+                body.classList.add('light-mode'); // Apply light mode if found
+                toggleSwitch.checked = true; // Make the switch checked to reflect light mode
+            }
+        });
+
+        // Add an event listener to the switch to toggle light/dark mode when changed
+        toggleSwitch.addEventListener('change', function() {
+            if (toggleSwitch.checked) { // If the switch is checked (turned on)
+                body.classList.add('light-mode'); // Add the 'light-mode' class to the body
+                localStorage.setItem('theme', 'light'); // Save the preference as 'light' in localStorage
+            } else { // If the switch is unchecked (turned off)
+                body.classList.remove('light-mode'); // Remove the 'light-mode' class from the body
+                localStorage.setItem('theme', 'dark'); // Save the preference as 'dark' in localStorage
+            }
+        });
     </script>
 
 </body>
