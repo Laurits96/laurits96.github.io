@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="icon" href="fav.png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio</title>
@@ -87,10 +88,29 @@
             font-size: 36px;
             margin-bottom: 10px;
         }
+        .content h3 {
+            color: #333;
+            font-size: 28px;
+            font-weight: 750;
+            margin-bottom: 10px;
+        }
+        .content h4 {
+            color: #333;
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
         .content p {
-            font-size: 18px;
+            font-size: 15px;
             color: #666;
         }
+        .content .desc{
+            font-size: 15px;
+            color: #7372726e;
+            margin-bottom: 0px;
+            margin-top: 0px;
+        }
+
     </style>
 </head>
 <body>
@@ -103,7 +123,7 @@
         <br/>
         <nav class="nav"">
             <ul>
-                <li><a href="javascript:void(0);" id="nav-Portfolio" class="active-link" onclick="showContent('Portfolio')">Portfolio</a></li>
+                <li><a href="javascript:void(0);" id="nav-Portfolio" class="active-link" onclick="showContent('Portfolio')">Portfolio &gt;</a></li>
                 <li><a href="javascript:void(0);" id="nav-CV" onclick="showContent('CV')">CV</a></li>
                 <li><a href="javascript:void(0);" id="nav-Diploma" onclick="showContent('Diploma')">Diploma</a></li>
             </ul>
@@ -114,17 +134,53 @@
         </div>
     </div>
 
-    <div id="Portfolio" class="content active">
+    <div id="Portfolio" class="content">
         <h2>Portfolio</h2>
         <p>Portfolio page is currently under development...</p>
         <img src="meme.jpg">
     </div> 
 
-    <div id="CV" class="content">
-        <h2>CV</h2>
-        <script src="cv.html"></script>
-        <p>Experience a lifetime adventure. Save up on your holiday.</p>
-        <p>Tripsomnia is a web platform that allows users to book and sell local tours and tourist attractions all over the world. It serves both as:</p>
+    <div id="CV" class="content active">
+        <h3>Work Experience</h3>
+            <h4>Polykteknisk Boghandel & Forlag</h4>
+                <div class="desc">Student assistant - 2021 to 2024</div>
+                <p>In my role as a student assistant at the Polyteknisk Boghandel og Forlag and publishing house, I was responsible for several key tasks that ensured efficient operations and a positive customer experience. I handled inventory management, where I received, checked, and registered new deliveries of books and other products. Additionally, I was in charge of organizing and maintaining the warehouse, which involved keeping track of stock levels, ensuring optimal storage of products, and making sure the store was always well-stocked.
+                    I also had direct customer interaction, where I assisted customers in finding the right books and products, answered questions, and provided personalized service that met their needs. Furthermore, I managed online orders, where I packed, processed, and shipped orders, ensuring that customers received their items quickly and accurately.
+                    My experience has equipped me with strong skills in logistics, customer service, and retail, all of which have contributed to smooth and customer-focused operations.</p>
+            
+            <h4>Substitute Teacher</h4>
+            <div class="desc">August 2016 - June 2017</div>
+                <p>As a substitute teacher, I taught students from kindergarten through 10th grade in various subjects. My role involved planning and delivering lessons, where I adapted the teaching materials to different age groups and academic levels. I taught subjects such as Danish, mathematics, English, science, and social studies, working with both individual tasks and group work to foster students' learning and engagement.
+                    For the last three months, I worked full-time, taking over all teaching responsibilities from a regular teacher. During this period, I taught English and mathematics, as well as provided specialized instruction for students with dyslexia.
+                    I was also responsible for creating a safe learning environment, ensuring classroom structure and discipline. Additionally, I demonstrated flexibility by stepping into different classes and situations, often on short notice, which required quick adaptation and strong communication skills.
+                    My experience as a substitute teacher has developed my pedagogical skills, my ability to manage various teaching situations, and my commitment to supporting students' development and well-being.</p>
+       
+        <h3>Education</h3>
+            <h4>Bs. in Eng. Software technology - DTU</h4>
+            <div class="desc">2021-2024</div>
+            <p> During my Software Engineering studies at DTU, I gained a solid understanding of the core principles of software development. I worked with various programming languages, including Java, Python, TypeScript, and R, as well as development environments, gaining experience in both frontend and
+                backend development. Additionally, through coursework, I acquired comprehensive knowledge of databases, algorithms, data structures, software architecture, and design patterns.
+                My education also provided me with practical experience in agile development methodologies, version control, and teamwork through project work. I have honed my problem-solving skills and my ability to translate complex requirements into effective software solutions.
+                For my bachelor’s project, I collaborated with a company to develop a new interface for their equipment. I applied user experience engineering principles to create wireframes and assisted in identifying the necessary functionalities that the new interface should include.
+            </p>
+            <h4>Bs. in Eng. Quantitive Biology and Disease Modelling - DTU</h4>
+            <div class="desc">2017-2021</div>
+            <p>
+                During this study, I acquired fundamental knowledge of human anatomy and physiology, along with an understanding of the most common diseases in Denmark, including their prevalence, etiology, pathogenesis, and symptoms.
+                Throughout my education, I developed a solid foundational knowledge of the anatomy and physiology of the healthy human body, as well as the most common diseases in Denmark, focusing on their causes, mechanisms, and symptoms. I also gained a basic understanding of cell biology, biophysics, and biochemistry, and their relevance to human biology.
+                I obtained theoretical knowledge and practical experience in the design and validation of pharmacokinetic models, analysis of population dynamics and disease spread, and mathematical modeling of biological issues. Additionally, I have worked with machine learning, numerical methods, and bioinformatics.
+            </p>
+        <h3>Wolunteer Work</h3>
+            <h4>Vektor at DTU</h4>
+            <div class="desc">2018 and 2022</div>
+                <p>
+                    During my time at DTU, I served as a Vektor, playing a key role in the student onboarding process. As a Vektor, I was responsible for helping new students settle into DTU through social events and activities, including planning and organizing the introductory camp. This experience helped me develop strong collaboration and communication skills, as well as enhance my social capabilities.
+                </p>
+            <h4>Leader in CISV</h4>
+            <div class="desc">August 2017</div>
+            <p>
+                As a volunteer with CISV, I participated in their "Village" program, which brought together groups from 13 different nationalities. In my role as a Leader, I was responsible for four eleven-year-old children over the course of the four-week program. This experience allowed me to develop excellent teamwork skills with other leaders from around the world and coordinate activities for all participating children.
+            </p>
     </div>
 
     <div id="Diploma" class="content">
@@ -140,7 +196,7 @@
                 link.classList.remove('active-link');
                 // Reset text to default
                 if (link.id === 'nav-' + id) {
-                    link.textContent = link.textContent;
+                    link.textContent = id;
                 } else {
                     link.textContent = link.dataset.defaultText || link.textContent;
                 }
@@ -150,7 +206,7 @@
             const activeLink = document.getElementById('nav-' + id);
             activeLink.classList.add('active-link');
             activeLink.dataset.defaultText = activeLink.textContent; // Store default text
-            activeLink.textContent = activeLink.textContent;
+            activeLink.textContent = id + ' >';
               
             // Show the selected content section and update nav link text
             const content = document.getElementById(id);
